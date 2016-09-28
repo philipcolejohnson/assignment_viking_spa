@@ -1,7 +1,5 @@
-<div>
+<p ng-if="isEmpty(cart)">*Please add items to the cart*</p>
 
 <ul>
-  <cart-item ng-repeat="item in cart" item="item"></cart-item>
+  <cart-item ng-repeat="(id, item) in cart" item="item" id="id"></cart-item>
 </ul>
-
-</div>

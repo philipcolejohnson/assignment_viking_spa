@@ -7,7 +7,7 @@ spa.directive('product', ['cartService', function(cartService){
       product: '='
     },
     link: function(scope) {
-
+      
       scope.addItem = function(object) {
         cartService.addItem(object);
       };

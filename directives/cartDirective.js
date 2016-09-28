@@ -5,10 +5,10 @@ spa.directive('cartItem', ['cartService', 'productService', function(cartService
     restrict: "E",
     scope: {
       item: '=',
+      id: "="
     },
     link: function(scope) {
-
-      scope.products = productService.getProducts()
+      scope.products = productService.getProducts();
 
       scope.addItem = function(object) {
         cartService.addItem(object);

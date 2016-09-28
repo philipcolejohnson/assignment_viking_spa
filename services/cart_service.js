@@ -1,11 +1,25 @@
 spa.factory("cartService", [function(){
 
   var _cart = {};
+  var _cartSize = { size: 0 };
 
   var cartService = {};
 
   cartService.listAll = function() {
     return _cart;
+  };
+
+  cartService.updateCartSize = function() {
+    var count = 0;
+    for (var item in _cart) {
+      if (_cart[item].quantity === "0") {
+        removeItem(item);
+      } else {
+        count += Number(_cart[item].quantity);
+      }
+    }
+
+    _cartSize.size = count;
   };
 
   cartService.addItem = function(object, quantity) {
@@ -17,12 +31,19 @@ spa.factory("cartService", [function(){
         quantity: quantity || 1
       };
     }
+    cartService.updateCartSize();
 
     return _cart[object.id];
   };
 
   cartService.removeItem = function(object) {
     delete _cart[object.id];
+    cartService.updateCartSize();
+  };
+
+
+  cartService.getCartSize = function() {
+    return _cartSize;
   };
 
 

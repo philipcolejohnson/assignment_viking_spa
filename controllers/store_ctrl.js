@@ -1,8 +1,9 @@
-spa.controller('StoreCtrl', ["$scope", "productService", 'cartService', function($scope, productService, cartService){
+spa.controller('StoreCtrl', ["$scope", "productService", 'cartService', 'products', 'categories', function($scope, productService, cartService, products, categories){
 
+  $scope.products = products;
+  $scope.categories = categories;
 
-  $scope.products = productService.getProducts();
-  $scope.categories = productService.getCategories();
   $scope.cart = cartService.listAll();
+  $scope.cartSize = cartService.getCartSize();
 
 }]);

@@ -19,13 +19,13 @@
 
 <body class="container">
 
-  <nav>
+  <nav ng-controller="NavCtrl">
     <div class="title-container">
       <a href="index.html" class="nav-title">Viking Store</a>
     </div>
     <div class="shopping-cart" href="#">
       <a ui-sref="cart"><div class="cart-img"></div>
-      Your Cart</a>
+      Your Cart</a><span> ({{ cartSize.size }})</span>
     </div>
   </nav>
 
@@ -66,9 +66,11 @@
 <!--  Controllers  -->
 <script type="text/javascript" src="/controllers/store_ctrl.js"></script>
 <script type="text/javascript" src="/controllers/store_show_ctrl.js"></script>
+<script type="text/javascript" src="/controllers/nav_ctrl.js"></script>
 <script type="text/javascript" src="/controllers/cart_ctrl.js"></script>
 <!--  Directives  -->
 <script type="text/javascript" src="/directives/productDirective.js"></script>
+<script type="text/javascript" src="/directives/cartDirective.js"></script>
 
 <!--  Services  -->
 <script type="text/javascript" src="/services/product_service.js"></script>

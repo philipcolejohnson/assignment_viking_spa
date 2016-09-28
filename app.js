@@ -14,7 +14,18 @@ spa.config(function($stateProvider, $urlRouterProvider){
     .state('products.index', {
       url: '',
       templateUrl: '/templates/products.html',
-      controller: 'StoreCtrl'
+      controller: 'StoreCtrl',
+      resolve: {
+
+        products: function(productService) {
+          return productService.getProducts();
+        },
+
+        categories: function(productService) {
+          return productService.getCategories();
+        }
+
+      }
     })
 
 
@@ -28,10 +39,18 @@ spa.config(function($stateProvider, $urlRouterProvider){
       url: '/:product_id',
       templateUrl: '/templates/product.html',
       controller: 'StoreShowCtrl'
-    })
+    });
 });
 
 
 spa.factory('_', ['$window', function($window) {
   return $window._; // assumes underscore has already been loaded on the page
 }]);
+
+spa.run(['_', '$rootScope', function(_, $rootScope) {
+  $rootScope.isEmpty = _.isEmpty;
+}]);
+
+spa.run(function($rootScope){
+  $rootScope.$on("$stateChangeError", console.log.bind(console));
+});
