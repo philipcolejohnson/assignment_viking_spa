@@ -2,14 +2,13 @@ var spa = angular.module('spa', ['ui.router']);
 
 spa.config(function($stateProvider, $urlRouterProvider){
 
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/products');
 
   $stateProvider
     .state('products', {
-      url: '',
+      url: '/products',
       abstract: true,
-      template: '<div ui-view></div>',
-      controller: 'StoreCtrl'
+      template: '<div ui-view></div>'
     })
 
     .state('products.index', {
@@ -18,18 +17,18 @@ spa.config(function($stateProvider, $urlRouterProvider){
       controller: 'StoreCtrl'
     })
 
+
+    .state('cart', {
+      url: '/cart',
+      templateUrl: '/templates/cart.html',
+      controller: 'CartCtrl'
+    })
+
     .state('products.show', {
       url: '/:product_id',
       templateUrl: '/templates/product.html',
       controller: 'StoreShowCtrl'
     })
-
-    .state('cart', {
-      url: '/cart',
-      templateUrl: '/templates/cart.html',
-      controller: 'StoreShowCtrl'
-    })
-
 });
 
 
