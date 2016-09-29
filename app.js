@@ -35,6 +35,27 @@ spa.config(function($stateProvider, $urlRouterProvider){
       controller: 'CartCtrl'
     })
 
+    .state('checkout', {
+      url: '/checkout',
+      template: '<div ui-view></div>',
+      controller: 'CheckoutCtrl'
+    })
+
+    .state('checkout.billing', {
+      url: '/billing',
+      templateUrl: '/templates/checkout/billing.html'
+    })
+
+    .state('checkout.shipping', {
+      url: '/shipping',
+      templateUrl: '/templates/checkout/shipping.html'
+    })
+
+    .state('checkout.payment', {
+      url: '/payment',
+      templateUrl: '/templates/checkout/payment.html'
+    })
+
     .state('products.show', {
       url: '/:product_id',
       templateUrl: '/templates/product.html',

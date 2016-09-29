@@ -1,8 +1,9 @@
 <li>
-Item Name: {{products[item.id].name}}
+{{products[item.id].name}} — {{products[item.id].price | currency }}
 <form>
   <label>Quantity:</label>
-  <input type="text" ng-model="item.quantity"></input>
+  <input type="text" ng-model="quantity">
+  <input type="submit" value="Update" ng-click="addItem()">
   <br>
 </form>
 </li>

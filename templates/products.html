@@ -2,6 +2,8 @@
     <option ng-repeat="category in categories" value="{{ category.id }}">{{ category.name }}</option>
 </select>
 
+<br>
+
 <product ng-repeat="selectedProduct in products | categoryFilter: categorySelection | limitTo: 9" product="selectedProduct"></product>
 
   <div class="page-index">

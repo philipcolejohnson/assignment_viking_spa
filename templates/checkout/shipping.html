@@ -1,0 +1,28 @@
+<h2>Shipping Address</h2>
+
+<form name="shippingForm">
+  <label>Name</label>
+  <input type="input" name="name" ng-model="form.shipping.name" ng-required="true" ng-maxlength="255">
+  <br>
+
+  <label>Address 1</label>
+  <input type="input" name="address1" ng-model="form.shipping.address1" ng-required="true" ng-maxlength="255"><br>
+  
+  <label>Address 2</label>
+  <input type="input" name="address2" ng-model="form.shipping.address2" ng-maxlength="255"><br>
+  
+  <label>City</label>
+  <input type="input" name="city" ng-model="form.shipping.city" ng-required="true" ng-maxlength="255"><br>
+  
+  <label>ZIP</label>
+  <input type="input" name="zip" ng-model="form.shipping.zip" ng-required="true" ng-maxlength="25"><br>
+
+  <label>State</label>
+  <input type="input" name="state" ng-model="form.shipping.state" ng-required="true" ng-maxlength="2"><br>
+
+
+  
+</form>
+
+<hr>
+<a ui-sref="checkout.billing" class="cart-btn" href="#">&larr;Billing Address</a> <a ui-sref="#" class="cart-btn">Complete Order!</a>

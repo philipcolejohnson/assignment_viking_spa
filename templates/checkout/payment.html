@@ -1,0 +1,26 @@
+<h2>Payment Information</h2>
+<strong>Total: {{ total.total | currency }}</strong>
+<form name="paymentForm">
+  <label>Credit Card Number</label>
+  <input type="input" name="cardNumber" ng-model="form.payment.cardNumber" ng-required="true" ng-minlength="14" ng-maxlength="16" ng-pattern="\d{14,16}">
+  <br>
+
+  <label>Credit Card Expiration</label><br>
+  <strong>Month</strong>
+  <select ng-model="form.payment.expMonth">
+    <option ng-repeat="month in expMonths" value="{{ month }}">{{ month }}</option>
+  </select>
+  <strong>Year</strong>
+  <select ng-model="form.payment.expYear">
+    <option ng-repeat="year in expYears" value="{{ year }}">{{ year }}</option>
+  </select>
+
+  <br>
+  <label>CVV Number</label>
+  <input type="input" name="cardCvv" ng-model="form.payment.cvv" ng-maxlength="3" ng-minlength="3" ng-pattern="\d{3}" ng-required="true">
+
+  
+</form>
+
+<hr>
+<a ui-sref="cart" class="cart-btn" href="#">&larr;Back to cart</a> <a ui-sref="checkout.billing" class="cart-btn">Billing Address&rarr;</a>

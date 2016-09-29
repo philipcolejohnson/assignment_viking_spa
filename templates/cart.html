@@ -3,3 +3,8 @@
 <ul>
   <cart-item ng-repeat="(id, item) in cart" item="item" id="id"></cart-item>
 </ul>
+<hr>
+<strong>Total: {{ total.total | currency }}</strong>
+
+<br>
+<a ui-sref="checkout.payment" class="cart-btn" ng-if="!isEmpty(cart)">Check Out</a>

@@ -314,4 +314,16 @@ footer {
 }
 
 
+/*****************************
 
+Forms
+
+*****************************/
+
+.ng-valid {
+  border-color: green;
+}
+
+.ng-invalid {
+  border-color: red;
+}
